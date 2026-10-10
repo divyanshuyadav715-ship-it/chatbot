@@ -64,7 +64,7 @@ export const Dashboard = () => {
       storageService.saveChatHistory(updatedHistory);
     } catch (error) {
       console.error("Error sending message:", error);
-      const errorMsg = "Sorry, I encountered an error. Please try again or check your API key.";
+      const errorMsg = `Sorry, I encountered an error: ${error.message || 'Unknown error'}. Please try again or check your API key.`;
       const updatedHistory = [...newHistory, { role: 'model', content: errorMsg }];
       setHistory(updatedHistory);
       storageService.saveChatHistory(updatedHistory);
