@@ -98,16 +98,16 @@ export const ChatArea = ({ history, onSendMessage, isLoading, currentStreamingMe
                 </div>
               )}
               <div className={`flex flex-col ${msg.role === 'user' ? 'items-end' : 'items-start'} max-w-[85%]`}>
-                <div 
-                  className={`p-4 rounded-2xl shadow-sm ${
-                    msg.role === 'user' 
-                      ? 'bg-indigo-600 text-white rounded-tr-sm' 
-                      : 'bg-slate-800 text-slate-200 border border-slate-700 rounded-tl-sm w-full prose prose-invert max-w-none'
-                  }`}
-                  dangerouslySetInnerHTML={msg.role === 'model' ? { __html: marked.parse(msg.content) } : undefined}
-                >
-                  {msg.role === 'user' && msg.content}
-                </div>
+                {msg.role === 'user' ? (
+                  <div className="p-4 rounded-2xl shadow-sm bg-indigo-600 text-white rounded-tr-sm">
+                    {msg.content}
+                  </div>
+                ) : (
+                  <div 
+                    className="p-4 rounded-2xl shadow-sm bg-slate-800 text-slate-200 border border-slate-700 rounded-tl-sm w-full prose prose-invert max-w-none"
+                    dangerouslySetInnerHTML={{ __html: marked.parse(msg.content) }}
+                  />
+                )}
               </div>
               {msg.role === 'user' && (
                 <div className="w-8 h-8 rounded bg-slate-700 flex items-center justify-center flex-shrink-0 mt-1 shadow-md">
