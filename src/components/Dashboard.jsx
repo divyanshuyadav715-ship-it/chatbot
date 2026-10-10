@@ -32,7 +32,7 @@ export const Dashboard = () => {
   };
 
   const handleSendMessage = async (content) => {
-    if (!content.trim()) return;
+    if (!content.trim() || isLoading) return;
 
     const newHistory = [...history, { role: 'user', content }];
     setHistory(newHistory);
@@ -68,6 +68,7 @@ export const Dashboard = () => {
       const updatedHistory = [...newHistory, { role: 'model', content: errorMsg }];
       setHistory(updatedHistory);
       storageService.saveChatHistory(updatedHistory);
+      setChatSession(null);
     } finally {
       setIsLoading(false);
       setCurrentStreamingMessage('');
