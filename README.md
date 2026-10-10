@@ -2,6 +2,8 @@
 
 A Socratic Data Structures and Algorithms (DSA) Instructor application powered by the Gemini API. This app acts as an encouraging, expert DSA mentor that guides students using the Socratic method—providing hints, edge-case checks, and Big-O time/space complexity analysis without giving away code immediately.
 
+**Live Demo**: [https://divyanshuyadav715-ship-it.github.io/chatbot/](https://divyanshuyadav715-ship-it.github.io/chatbot/)
+
 ## 🚀 Features
 
 - **Socratic AI Tutor Persona**: Guides users through conceptual understanding rather than just giving away code. Evaluates Time $O(N)$ and Space $O(1)$ complexity.
